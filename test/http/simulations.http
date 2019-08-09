@@ -1,0 +1,15 @@
+POST http://localhost:9036/hc-analyzer/simulations/search
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{ }
+
+###
+
+GET http://localhost:9036/hc-analyzer/simulations/12
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
