@@ -8,6 +8,7 @@ GET     /                           controllers.HomeController.index
 
 POST    /hc-analyzer/simulations/search        simulations.controllers.SimulationsController.search(page: Int ?= 0, take: Int ?= 25)
 GET     /hc-analyzer/simulations/:id           simulations.controllers.SimulationsController.edit(id: Long)
+POST     /hc-analyzer/simulations/:id/update_tags           simulations.controllers.SimulationsController.updateTags(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

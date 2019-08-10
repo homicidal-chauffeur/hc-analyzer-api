@@ -13,6 +13,7 @@ import slick.jdbc.SQLActionBuilder
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
+import scala.util.Try
 
 class SimulationDAO @Inject()(appProvider: Provider[Application],
                               protected val dbConfigProvider: DatabaseConfigProvider)
@@ -73,4 +74,9 @@ class SimulationDAO @Inject()(appProvider: Provider[Application],
     db.run(action)
   }
 
+  def updateTags(tags: SimTags): Future[Try[Int]] = {
+    val sql = sqlu""" UPDATE simulations SET tags = ${tags.tags} WHERE id = ${tags.id} """
+
+    db.run(sql.asTry)
+  }
 }
