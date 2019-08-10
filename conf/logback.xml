@@ -27,6 +27,12 @@
   <logger name="play" level="INFO" />
   <logger name="application" level="DEBUG" />
 
+  <logger name="simulations" level="DEBUG" />
+  <logger name="common" level="DEBUG" />
+
+  <logger name="play.api.db.slick" level="WARN" />
+  <logger name="scala.slick" level="SQL" />
+
   <root level="WARN">
     <!--<appender-ref ref="ASYNCFILE" />-->
     <appender-ref ref="ASYNCSTDOUT" />
