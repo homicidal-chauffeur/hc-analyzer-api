@@ -7,7 +7,8 @@ import javax.inject.Inject
 import play.api.{Application, Logging}
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfig}
 import common.PgProfileWithSpecialTypes
-import common.utils.{ActionBuilderUtils, PageDbJson}
+import slick.jdbc.JdbcProfile
+import common.utils.{ActionBuilderUtils, DateUtils, PageDbJson}
 import slick.jdbc.SQLActionBuilder
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -53,8 +54,8 @@ class SimulationDAO @Inject()(appProvider: Provider[Application],
     var cond = sql" WHERE 1 = 1 "
 
     filter.tags.map(c => cond =  ActionBuilderUtils.concat(cond, sql" AND s.tags ilike ${s"%$c%"}"))
-    filter.dateFrom.map(c => cond =  ActionBuilderUtils.concat(cond, sql" AND s.date_at::DATE >= ${Date.valueOf(c)}::DATE"))
-    filter.dateTo.map(c => cond =  ActionBuilderUtils.concat(cond, sql" AND s.date_at::DATE <= ${Date.valueOf(c)}::DATE"))
+    filter.dateFrom.map(c => cond =  ActionBuilderUtils.concat(cond, sql" AND s.date_at::DATE >= ${DateUtils.sqlDate(c)}::DATE"))
+    filter.dateTo.map(c => cond =  ActionBuilderUtils.concat(cond, sql" AND s.date_at::DATE <= ${DateUtils.sqlDate(c)}::DATE"))
 
     cond
   }

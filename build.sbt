@@ -13,6 +13,7 @@ libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.3
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-slick" % "4.0.0",
   "com.typesafe.play" %% "play-json" % "2.7.2",
+  "com.typesafe.play" %% "play-json-joda" % "2.7.2",
 
   "org.postgresql" % "postgresql" % "42.2.5",
   "com.github.tminglei" %% "slick-pg" % "0.18.0",
