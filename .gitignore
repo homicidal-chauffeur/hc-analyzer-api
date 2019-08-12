@@ -5,6 +5,7 @@ target
 tmp
 .history
 dist
+conf/db-config.conf
 /.idea
 /*.iml
 /out
