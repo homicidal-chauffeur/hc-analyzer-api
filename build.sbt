@@ -1,4 +1,4 @@
-name := """hc-analyzer-play"""
+name := """hc-analyzer-api"""
 organization := "net.nextlogic"
 
 version := "1.0-SNAPSHOT"
